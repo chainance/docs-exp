@@ -1,11 +1,15 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
+  "-- Network": {
+    "type": "separator",
+    "title": "Network"
   },
+  "rpc": "RPC endpoints",
+  "testnet": "Testnet",
+  "mainnet": "Mainnet",
+
+
+
   "contact": {
     "title": "Contact ↗",
     "type": "page",
