@@ -8,7 +8,12 @@
   "testnet": "Testnet",
   "mainnet": "Mainnet",
 
-
+  "-- Build": {
+    "type": "separator",
+    "title": "Build"
+  },
+  "tools": "DevTools",
+  "erc20": "ERC-20",
 
   "contact": {
     "title": "Contact ↗",
