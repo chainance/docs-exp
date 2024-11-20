@@ -83,7 +83,7 @@ contract FruitNFT is ERC721URIStorage, Ownable {
 
 After confirmation, you will see the deployed contract address in the Remix console.
 
-> The demo **FruitNFT** Contract: [0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E](https://testnet.xscscan.com/address/0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E)
+> The demo **FruitNFT** Contract: [0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E](https://testnet.xscscan.com/token/0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E)
 
 ![erc721](public/erc721_3.png)
 
@@ -115,7 +115,38 @@ Go to [Pinata.cloud](https://www.pinata.cloud/) and sign up for an account if yo
   "image": "https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmfXqRkyu3qYdYz5zWaFTaHNYqPBtUY7Q7MWPiu3An377q/apple.png"
 }
 ```
+>  Download "FruitNFT" Metadata source file [here](https://github.com/chainance/docs-exp/blob/main/public/zip/FruitNFT_metadata.zip).
+
+![erc721](public/erc721_6.png)
 
 - Upload Metadata JSON to Pinata.cloud
 
->  Download "FruitNFT" Metadata source file [here]().
+![erc721](public/erc721_7.png)
+
+## Step 6: Mint an NFT with Metadata
+
+1. Call the "createCollectible" function.
+
+2. Enter the TokenURI of the metadata stored on Pinata (e.g., if you want to mint FruitNFT #0: `https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmfXqRkyu3qYdYz5zWaFTaHNYqPBtUY7Q7MWPiu3An377q/apple.png`).
+
+3. Click "Transact" and confirm the transaction in your MetaMask wallet.
+
+![erc721](public/erc721_8.png)
+
+4. View [FruitNFT #0](https://testnet.xscscan.com/token/0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E/instance/0) on the Xone explorer.
+
+![erc721](public/erc721_9.png)
+
+## Demo Resources
+
+- FruitNFT Smart Contract: 0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E
+
+- FruitNFT images: https://github.com/chainance/docs-exp/blob/main/public/zip/fruit.zip
+ 
+- FruitNFT metadata: https://github.com/chainance/docs-exp/blob/main/public/zip/FruitNFT_metadata.zip
+
+- Pinta URL
+
+    1. FruitNFT images: https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmfXqRkyu3qYdYz5zWaFTaHNYqPBtUY7Q7MWPiu3An377q/
+
+    2. Metadata: https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmZDGYkpsuegPP6Vy4ntrnZvAEVaXS3fPDY4KPzxq7JeEe/
