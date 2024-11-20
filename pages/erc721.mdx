@@ -16,3 +16,106 @@ The "Fruit" collection will have:
 3. Test TXOC (Xone Chain test tokens) for gas fees. Use the [Xone Faucet](https://faucet.xone.plus/) to get free tokens.
 4. Get Pinata Account [Pinata.cloud](https://www.pinata.cloud/)
 5. Download **Fruit** NFT zip file [here](https://github.com/chainance/docs-exp/blob/main/public/zip/fruit.zip).
+
+   ![erc721](public/fruit_collection.png)
+
+## Step 1: Create the Fruit NFT Contract
+1. Open Remix IDE and create a new file under the `contracts` folder. Name it `FruitNFT.sol`.
+2. Add the following code to the file:
+
+``` js copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.22;
+ 
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+ 
+contract FruitNFT is ERC721URIStorage, Ownable {
+    constructor() ERC721("FruitNFT", "FRUIT") Ownable(msg.sender) {}
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+    uint256 public constant MAX_SUPPLY = 6;
+ 
+    function createCollectible(string memory tokenURI) public onlyOwner returns (uint256) {
+        require(_tokenIds.current() < MAX_SUPPLY, "All NFTs have been minted");
+        _tokenIds.increment();
+        uint256 newItemId = _tokenIds.current()-1;
+        _mint(msg.sender, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+        return newItemId;
+    }
+}
+
+```
+   ![erc721](public/erc721_0.png)
+
+## Step 2: Compile the Smart Contract
+
+1. Click on the "Solidity Compiler" tab on the left sidebar.
+
+2. Select the appropriate compiler version (0.8.x). Example: 0.8.26+commit.8a97fa7a.
+
+3. Click on "Advanced Configurations" to expand the advanced settings.
+
+4. Choose EVM Version "Paris".
+
+5. Enable optimization (default 200).
+
+6. Click "Compile FruitNFT.sol" button. Ensure there are no compilation errors.
+
+![erc721](public/erc721_1.png)
+
+## Step 3: Deploy the Smart Contract
+
+1. Navigate to the "Deploy & Run Transactions" tab in Remix.
+
+2. In the "ENVIRONMENT" dropdown, select "Injected Web3" to connect Remix to your MetaMask wallet.
+
+3. Select the FruitNFT contract from the dropdown menu.
+
+4. Click "Deploy" and confirm the transaction in your MetaMask wallet.
+
+![erc721](public/erc721_2.png)
+
+## Step 4: View contract address
+
+After confirmation, you will see the deployed contract address in the Remix console.
+
+> The demo **FruitNFT** Contract: [0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E](https://testnet.xscscan.com/address/0x7e2484104F9648Aa233d85d57A2bD0f0Fa82413E)
+
+![erc721](public/erc721_3.png)
+
+## Step 5: Store NFT Metadata with Pinata.cloud
+
+1. Sign Up and Log In to Pinata.cloud
+
+Go to [Pinata.cloud](https://www.pinata.cloud/) and sign up for an account if you don't have one.
+
+2. Click on "Upload" in the Pinata dashboard and select "Folder".
+
+![erc721](public/erc721_4.png)
+
+3. Upload the "FruitNFT" source file.
+
+![erc721](public/erc721_5.png)
+
+
+ > **Note this CID URL** `https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmfXqRkyu3qYdYz5zWaFTaHNYqPBtUY7Q7MWPiu3An377q/`, as it will be used when minting the NFT.
+
+4. Create Metadata JSON File
+
+- Create a JSON file with the following structure.
+
+``` js copy
+{
+  "name": "FruitNFT #0",
+  "description": "This is an apple.",
+  "image": "https://blue-tricky-fly-90.mypinata.cloud/ipfs/QmfXqRkyu3qYdYz5zWaFTaHNYqPBtUY7Q7MWPiu3An377q/apple.png"
+}
+```
+
+- Upload Metadata JSON to Pinata.cloud
+
+>  Download "FruitNFT" Metadata source file [here]().
