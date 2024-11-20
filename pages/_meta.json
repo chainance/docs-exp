@@ -13,7 +13,8 @@
     "title": "Build"
   },
   "tools": "DevTools",
-  "erc20": "ERC-20",
+  "erc20": "Deploying an ERC-20 Token",
+  "erc721": "Deploying an ERC-721 NFT Collection",
 
   "contact": {
     "title": "Contact ↗",
