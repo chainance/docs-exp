@@ -4,6 +4,7 @@
     "type": "separator",
     "title": "Network"
   },
+  "framework": "Technical Framework ",
   "rpc": "RPC endpoints",
   "testnet": "Testnet",
   "mainnet": "Mainnet",
